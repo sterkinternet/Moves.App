@@ -12,6 +12,6 @@ namespace Moves.App.Helpers.ActionFilters {
 				filterContext.RequestContext.HttpContext.Response.Redirect(url);
 				filterContext.RequestContext.HttpContext.Response.End();
 			}
-		}
+		}		
 	}
 }
