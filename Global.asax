@@ -1,0 +1,1 @@
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Moves.App.Helpers.MovesApplication" Language="C#" %>

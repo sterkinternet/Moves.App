@@ -1,0 +1,26 @@
+﻿@{
+    Layout = null;
+}
+@model MovesResult<IEnumerable<Day>>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Start</title>
+</head>
+<body>
+	<ul>
+		@foreach (var day in Model.Data) {
+			<li>@day.Date</li>
+			<table>
+			@foreach (var segment in day.Segments) {				
+				<tr>
+					<td>@segment.Place.Name</td>
+				</tr>								
+			}
+			</table>
+		}
+	</ul>
+</body>
+</html>
