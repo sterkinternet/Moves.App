@@ -15,10 +15,8 @@ namespace Moves.App.Controllers
     {
 		[MovesAuthenticate(new[] { "activity", "location"})]
         public ActionResult Start()
-        {
-			var places = MovesApplication.MovesService.Places.GetByMonth(2014, 4);
-			throw new MovesException("a", HttpStatusCode.Unauthorized);
-			return View(places);
+        {			
+			return View();
 		}
 
 

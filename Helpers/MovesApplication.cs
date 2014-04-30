@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using Moves.Net;
 using System.Linq;
+using ScrumBoard.App_Start;
 
 namespace Moves.App.Helpers {
 	public class MovesApplication : HttpApplication {
@@ -17,6 +18,7 @@ namespace Moves.App.Helpers {
 			WebApiConfig.Register(GlobalConfiguration.Configuration);
 			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
+			BootstrapBundleConfig.RegisterBundles();
 		}		
 
 		protected void Application_BeginRequest(object sender, EventArgs e) {

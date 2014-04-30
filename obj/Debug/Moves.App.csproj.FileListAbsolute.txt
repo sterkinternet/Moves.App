@@ -34,3 +34,9 @@ D:\Projects\Moves\Moves.App\Moves.App\bin\RestSharp.xml
 D:\Projects\Moves\Moves.App\Moves.App\obj\Debug\Moves.App.csprojResolveAssemblyReference.cache
 D:\Projects\Moves\Moves.App\Moves.App\obj\Debug\Moves.App.dll
 D:\Projects\Moves\Moves.App\Moves.App\obj\Debug\Moves.App.pdb
+D:\Projects\Moves\Moves.App\Moves.App\bin\Antlr3.Runtime.dll
+D:\Projects\Moves\Moves.App\Moves.App\bin\System.Web.Optimization.dll
+D:\Projects\Moves\Moves.App\Moves.App\bin\WebActivatorEx.dll
+D:\Projects\Moves\Moves.App\Moves.App\bin\WebGrease.dll
+D:\Projects\Moves\Moves.App\Moves.App\bin\Antlr3.Runtime.pdb
+D:\Projects\Moves\Moves.App\Moves.App\bin\System.Web.Optimization.xml
