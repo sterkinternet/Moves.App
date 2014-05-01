@@ -29,7 +29,7 @@ namespace Moves.App.Helpers {
 
 			var authorizationToken = HttpContext.Current.Request.QueryString["code"];
 			if (!string.IsNullOrEmpty(authorizationToken)) {
-				var token = service.Authentication.ReceiveAccessToken(authorizationToken, null);
+				var token = service.ReceiveAccessToken(authorizationToken, null);
 				SetAccessToken(token.Data.AccessToken);
 				service = new MovesService(clientId, clientSecret, token.Data.AccessToken);
 			}

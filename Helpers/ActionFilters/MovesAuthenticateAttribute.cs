@@ -8,7 +8,7 @@ namespace Moves.App.Helpers.ActionFilters {
 		}
 		public override void OnActionExecuting(ActionExecutingContext filterContext) {
 			if (!MovesApplication.HasToken) { 
-				var url = MovesApplication.MovesService.Authentication.CreateAuthorizationUrl(this.Scopes);
+				var url = MovesApplication.MovesService.GetAuthorizationUrl(this.Scopes);
 				filterContext.RequestContext.HttpContext.Response.Redirect(url);
 				filterContext.RequestContext.HttpContext.Response.End();
 			}

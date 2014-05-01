@@ -40,6 +40,7 @@ D:\Projects\Moves\Moves.App\Moves.App\bin\WebActivatorEx.dll
 D:\Projects\Moves\Moves.App\Moves.App\bin\WebGrease.dll
 D:\Projects\Moves\Moves.App\Moves.App\bin\Antlr3.Runtime.pdb
 D:\Projects\Moves\Moves.App\Moves.App\bin\System.Web.Optimization.xml
+C:\Projecten\Moves\Moves.App\bin\Moves.App.dll.config
 C:\Projecten\Moves\Moves.App\bin\Moves.App.dll
 C:\Projecten\Moves\Moves.App\bin\Moves.App.pdb
 C:\Projecten\Moves\Moves.App\bin\Microsoft.Web.Infrastructure.dll
@@ -57,9 +58,7 @@ C:\Projecten\Moves\Moves.App\bin\System.Web.WebPages.dll
 C:\Projecten\Moves\Moves.App\bin\System.Web.WebPages.Razor.dll
 C:\Projecten\Moves\Moves.App\bin\RestSharp.dll
 C:\Projecten\Moves\Moves.App\bin\Moves.Net.pdb
-C:\Projecten\Moves\Moves.App\bin\Antlr3.Runtime.pdb
 C:\Projecten\Moves\Moves.App\bin\Microsoft.Web.Infrastructure.xml
-C:\Projecten\Moves\Moves.App\bin\Newtonsoft.Json.xml
 C:\Projecten\Moves\Moves.App\bin\System.Net.Http.xml
 C:\Projecten\Moves\Moves.App\bin\System.Net.Http.Formatting.xml
 C:\Projecten\Moves\Moves.App\bin\System.Net.Http.WebRequest.xml
@@ -67,12 +66,16 @@ C:\Projecten\Moves\Moves.App\bin\System.Web.Helpers.xml
 C:\Projecten\Moves\Moves.App\bin\System.Web.Http.xml
 C:\Projecten\Moves\Moves.App\bin\System.Web.Http.WebHost.xml
 C:\Projecten\Moves\Moves.App\bin\System.Web.Mvc.xml
-C:\Projecten\Moves\Moves.App\bin\System.Web.Optimization.xml
 C:\Projecten\Moves\Moves.App\bin\System.Web.Razor.xml
 C:\Projecten\Moves\Moves.App\bin\System.Web.WebPages.xml
 C:\Projecten\Moves\Moves.App\bin\System.Web.WebPages.Deployment.xml
 C:\Projecten\Moves\Moves.App\bin\System.Web.WebPages.Razor.xml
-C:\Projecten\Moves\Moves.App\bin\RestSharp.xml
 C:\Projecten\Moves\Moves.App\obj\Debug\Moves.App.csprojResolveAssemblyReference.cache
 C:\Projecten\Moves\Moves.App\obj\Debug\Moves.App.dll
 C:\Projecten\Moves\Moves.App\obj\Debug\Moves.App.pdb
+C:\Projecten\Moves\Moves.App\bin\Newtonsoft.Json.dll
+C:\Projecten\Moves\Moves.App\bin\Newtonsoft.Json.xml
+C:\Projecten\Moves\Moves.App\bin\EntityFramework.dll
+C:\Projecten\Moves\Moves.App\bin\EntityFramework.SqlServer.dll
+C:\Projecten\Moves\Moves.App\bin\EntityFramework.xml
+C:\Projecten\Moves\Moves.App\bin\EntityFramework.SqlServer.xml
