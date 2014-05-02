@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Rsft.HttpCookieSecure</id>
+    <version>1.0.0.0</version>
+    <title>HttpCookieSecure</title>
+    <authors>Rolosoft</authors>
+    <owners>Rolosoft</owners>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <projectUrl>https://code.google.com/p/http-cookie-secure/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Encryption and decryption of HTTP cookies, provides protection against manual cookie tampering.</description>
+    <summary>IIS server side software for .NET framework 4.0. Provides encryption and decryption of HTTP cookies together with tamper protection.</summary>
+    <releaseNotes>Initial release.</releaseNotes>
+    <copyright>Copyright 2013</copyright>
+    <language>en-US</language>
+    <tags>rolosoft IIS cookie</tags>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.Web" targetFramework=".NETFramework4.0" />
+    </frameworkAssemblies>
+  </metadata>
+</package>

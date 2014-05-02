@@ -527,7 +527,7 @@
     <Content Include="Scripts\angular.min.js.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Moves.Net\Moves.Net\Moves.Net.csproj">
+    <ProjectReference Include="..\Moves.Net\Moves.Net\Moves.Net.csproj">
       <Project>{96e12132-8b35-47a4-9710-900cfda17934}</Project>
       <Name>Moves.Net</Name>
     </ProjectReference>
