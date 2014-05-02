@@ -76,7 +76,7 @@ namespace Moves.App.Helpers {
 		private void SetAccessToken(AccessTokenData accessToken) {			
 			var cookie = new HttpCookie(AccessTokenKey) { 				
 				HttpOnly = true,
-				Expires = DateTime.Today.AddSeconds(accessToken.ExpiresIn),
+				Expires = DateTime.Today.AddSeconds(Int32.Parse(accessToken.ExpiresIn)),
 				Value = JsonConvert.SerializeObject(accessToken) 
 			};						
 			HttpContext.Current.Response.SetCookie(CookieSecure.Encode(cookie, CookieProtection.Encryption));

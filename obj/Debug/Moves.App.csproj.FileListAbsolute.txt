@@ -124,3 +124,5 @@ D:\Projects\Moves\Moves.App\bin\RestSharp.xml
 D:\Projects\Moves\Moves.App\obj\Debug\Moves.App.csprojResolveAssemblyReference.cache
 D:\Projects\Moves\Moves.App\obj\Debug\Moves.App.dll
 D:\Projects\Moves\Moves.App\obj\Debug\Moves.App.pdb
+D:\Projects\Moves\Moves.App\bin\Newtonsoft.Json.dll
+D:\Projects\Moves\Moves.App\bin\Moves.Net.xml

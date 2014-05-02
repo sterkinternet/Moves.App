@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Moves.Net</name>
+    </assembly>
+    <members>
+        <member name="M:Moves.Net.Endpoints.DailyEndpointBase.GetDaily(System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Boolean},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
+            <summary>
+            Get daily result for a requested day, week, month or period.
+            </summary>
+            <param name="dailyString">The string of the daily request (day, week, month)</param>
+            <param name="to">From range in one query between from and to date is 31 days</param>
+            <param name="trackPoints">Should the tracking points be included in the result.</param>
+            <param name="updatedSince">Return only days which data has been updated since given timestamp in ISO 8601</param>
+            <param name="pastDays">How many past days to return, including today (in users current time zone)</param>
+            <param name="timeZone">Use the given time zone ID for the date period and timestamps, overriding the users current time zone</param>
+            <param name="etag">The ETag response-header field provides the current value of the entity tag for the requested variant</param>
+            <returns>A daily result.</returns>
+        </member>
+        <member name="M:Moves.Net.Endpoints.DailyEndpointBase.GetPeriod(System.DateTime,System.DateTime,System.Boolean,System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
+            <summary>
+            Get daily result for a period.
+            </summary>
+            <param name="from">From range in one query between from and to date is 31 days</param>
+            <param name="to">From range in one query between from and to date is 31 days</param>
+            <param name="trackPoints">Should the tracking points be included in the result.</param>
+            <param name="updatedSince">Return only days which data has been updated since given timestamp in ISO 8601</param>
+            <param name="pastDays">How many past days to return, including today (in users current time zone)</param>
+            <param name="timeZone">Use the given time zone ID for the date period and timestamps, overriding the users current time zone</param>
+            <param name="etag">The ETag response-header field provides the current value of the entity tag for the requested variant</param>
+            <returns>A daily result.</returns>
+        </member>
+        <member name="M:Moves.Net.Endpoints.DailyEndpointBase.GetByDay(System.Int32,System.Int32,System.Int32,System.Boolean,System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
+            <summary>
+            Get daily result for a requested day
+            </summary>
+            <param name="year">The year of the requested day</param>
+            <param name="month">The month of the requested day</param>
+            <param name="day">The day of the requested day</param>
+            <param name="trackPoints">Should the tracking points be included in the result.</param>
+            <param name="updatedSince">Return only days which data has been updated since given timestamp in ISO 8601</param>
+            <param name="pastDays">How many past days to return, including today (in users current time zone)</param>
+            <param name="timeZone">Use the given time zone ID for the date period and timestamps, overriding the users current time zone</param>
+            <param name="etag">The ETag response-header field provides the current value of the entity tag for the requested variant</param>
+            <returns>A daily result.</returns>
+        </member>
+        <member name="M:Moves.Net.Endpoints.DailyEndpointBase.GetByMonth(System.Int32,System.Int32,System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
+            <summary>
+            Get daily result for a requested month
+            </summary>
+            <param name="year">The year of the requested day</param>
+            <param name="month">The month of the requested day</param>        
+            <param name="trackPoints">Should the tracking points be included in the result.</param>
+            <param name="updatedSince">Return only days which data has been updated since given timestamp in ISO 8601</param>
+            <param name="pastDays">How many past days to return, including today (in users current time zone)</param>
+            <param name="timeZone">Use the given time zone ID for the date period and timestamps, overriding the users current time zone</param>
+            <param name="etag">The ETag response-header field provides the current value of the entity tag for the requested variant</param>
+            <returns>A daily result.</returns>
+        </member>
+        <member name="M:Moves.Net.Endpoints.DailyEndpointBase.GetByWeek(System.Int32,System.Int32,System.Boolean,System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
+            <summary>
+            Get daily result for a requested week
+            </summary>
+            <param name="year">The year of the requested week</param>
+            <param name="weekNr">The requested week, Uses ISO8601 week-numbering.</param>        
+            <param name="trackPoints">Should the tracking points be included in the result.</param>
+            <param name="updatedSince">Return only days which data has been updated since given timestamp in ISO 8601</param>
+            <param name="pastDays">How many past days to return, including today (in users current time zone)</param>
+            <param name="timeZone">Use the given time zone ID for the date period and timestamps, overriding the users current time zone</param>
+            <param name="etag">The ETag response-header field provides the current value of the entity tag for the requested variant</param>
+            <returns>A daily result.</returns>
+        </member>
+        <member name="M:Moves.Net.MovesService.Authorized(System.String)">
+            <summary>
+            Returns a new instance of the service. The given 
+            <paramref name="accessToken"/> is used in each request made by this
+            instance.
+            </summary>
+            <param name="accessToken">The access token to use</param>
+            <returns>A new <see cref="T:Moves.Net.MovesService"/> instance</returns>
+        </member>
+    </members>
+</doc>
