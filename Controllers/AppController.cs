@@ -18,8 +18,21 @@ namespace Moves.App.Controllers
     {
 		[MovesAuthenticate(new[] { "activity", "location"})]
         public ActionResult Start()
-        {			
+        {
+			return RedirectToAction("Places");
+		}
+
+		public ActionResult Places() {
 			return View();
+		}
+
+		public ActionResult Storyline() {
+			return View();
+		}
+
+		public ActionResult Logoff() {
+			MovesApplication.Logoff();
+			return RedirectToAction("Start");
 		}
 
         public void Import()

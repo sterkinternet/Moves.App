@@ -43,10 +43,10 @@
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework">
-      <HintPath>packages\EntityFramework.6.0.0\lib\net40\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer">
-      <HintPath>packages\EntityFramework.6.0.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -60,6 +60,9 @@
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>packages\Newtonsoft.Json.6.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Rsft.HttpCookieSecure">
+      <HintPath>..\packages\Rsft.HttpCookieSecure.1.0.0.0\lib\net40\Rsft.HttpCookieSecure.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -167,9 +170,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="App\app.js" />
+    <Content Include="App\Controllers\StorylineController.js" />
     <Content Include="App\Controllers\PlacesController.js" />
     <Content Include="App\Libraries\lodash.js" />
-    <Content Include="App\Modules\PlacesModule.js" />
+    <Content Include="App\Modules\ApiModule.js" />
     <Content Include="App\Modules\UtilModule.js" />
     <Content Include="App_Data\MovesApp.mdf" />
     <Content Include="App_Data\MovesApp_log.ldf">
@@ -483,15 +487,14 @@
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\App\Places.cshtml" />
+    <Content Include="Views\App\Storyline.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\App\Start.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\version.json" />
@@ -524,7 +527,7 @@
     <Content Include="Scripts\angular.min.js.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Moves.Net\Moves.Net\Moves.Net.csproj">
+    <ProjectReference Include="..\..\Moves.Net\Moves.Net\Moves.Net.csproj">
       <Project>{96e12132-8b35-47a4-9710-900cfda17934}</Project>
       <Name>Moves.Net</Name>
     </ProjectReference>

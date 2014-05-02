@@ -7,6 +7,10 @@ using System.Web.Routing;
 using Moves.Net;
 using System.Linq;
 using ScrumBoard.App_Start;
+using Rsft.HttpCookieSecure;
+using System.Web.Security;
+using Moves.Net.Model;
+using Newtonsoft.Json;
 
 namespace Moves.App.Helpers {
 	public class MovesApplication : HttpApplication {
@@ -25,12 +29,12 @@ namespace Moves.App.Helpers {
 			var accessToken = GetAccessToken();
 			var clientId = ConfigurationManager.AppSettings["ClientId"];
 			var clientSecret = ConfigurationManager.AppSettings["ClientSecret"];			
-			var service = new MovesService(clientId, clientSecret, accessToken);
+			var service = new MovesService(clientId, clientSecret, accessToken != null ? accessToken.AccessToken : null);
 
 			var authorizationToken = HttpContext.Current.Request.QueryString["code"];
 			if (!string.IsNullOrEmpty(authorizationToken)) {
 				var token = service.ReceiveAccessToken(authorizationToken, null);
-				SetAccessToken(token.Data.AccessToken);
+				SetAccessToken(token.Data);
 				service = new MovesService(clientId, clientSecret, token.Data.AccessToken);
 			}
 			HttpContext.Current.Items[MovesServiceKey] = service;
@@ -38,6 +42,14 @@ namespace Moves.App.Helpers {
 
 		protected void Application_EndRequest(object sender, EventArgs e) {
 			HttpContext.Current.Items.Remove(MovesServiceKey);
+		}
+
+		public static void Logoff() {
+			var cookie = HttpContext.Current.Request.Cookies[AccessTokenKey];
+			if (cookie != null) {
+				HttpContext.Current.Response.Cookies[AccessTokenKey].Expires = DateTime.Today.AddDays(-1);
+			}
+			HttpContext.Current.Session.Abandon();
 		}
 
 		public static MovesService MovesService {
@@ -52,18 +64,22 @@ namespace Moves.App.Helpers {
 			}
 		}
 
-		private string GetAccessToken() {
+		private AccessTokenData GetAccessToken() {
 			if (HttpContext.Current.Request.Cookies.AllKeys.Contains(AccessTokenKey)) {
-				return HttpContext.Current.Request.Cookies[AccessTokenKey].Value;
+				var cookie = HttpContext.Current.Request.Cookies[AccessTokenKey];
+				var decrypted = CookieSecure.Decode(cookie, CookieProtection.Encryption);				
+				return !string.IsNullOrEmpty(decrypted.Value) ? JsonConvert.DeserializeObject<AccessTokenData>(decrypted.Value) : null;				
 			}
 			return null;
 		}
 
-		private void SetAccessToken(string accessToken) {
-			var cookie = new HttpCookie(AccessTokenKey) { 
-				Value = accessToken 
-			};			
-			HttpContext.Current.Response.SetCookie(cookie);
+		private void SetAccessToken(AccessTokenData accessToken) {			
+			var cookie = new HttpCookie(AccessTokenKey) { 				
+				HttpOnly = true,
+				Expires = DateTime.Today.AddSeconds(accessToken.ExpiresIn),
+				Value = JsonConvert.SerializeObject(accessToken) 
+			};						
+			HttpContext.Current.Response.SetCookie(CookieSecure.Encode(cookie, CookieProtection.Encryption));
 		}
 	}
 }

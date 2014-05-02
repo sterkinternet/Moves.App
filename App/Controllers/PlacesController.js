@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-movesApp.controller('PlacesController', ['$scope', 'PlacesService', function ($scope, placesService)
+movesApp.controller('PlacesController', ['$scope', 'ApiService', function ($scope, apiService)
 {
 	var currentDate = new Date();
 	
@@ -8,7 +8,7 @@ movesApp.controller('PlacesController', ['$scope', 'PlacesService', function ($s
 	$scope.month = currentDate.getMonth() + 1;
 
 	var search = function () {
-		placesService.getMonth($scope.year, $scope.month).then(function (response) {
+		apiService.getPlaces($scope.year, $scope.month).then(function (response) {
 			$scope.days = response.data;
 		});
 	}

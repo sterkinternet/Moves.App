@@ -4,7 +4,6 @@ D:\Projects\Moves\Moves.App\Moves.App\bin\Moves.App.pdb
 D:\Projects\Moves\Moves.App\Moves.App\bin\Microsoft.Web.Infrastructure.dll
 D:\Projects\Moves\Moves.App\Moves.App\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
 D:\Projects\Moves\Moves.App\Moves.App\bin\Moves.Net.dll
-D:\Projects\Moves\Moves.App\Moves.App\bin\Newtonsoft.Json.dll
 D:\Projects\Moves\Moves.App\Moves.App\bin\System.Net.Http.dll
 D:\Projects\Moves\Moves.App\Moves.App\bin\System.Net.Http.Formatting.dll
 D:\Projects\Moves\Moves.App\Moves.App\bin\System.Net.Http.WebRequest.dll
@@ -79,3 +78,9 @@ C:\Projecten\Moves\Moves.App\bin\EntityFramework.dll
 C:\Projecten\Moves\Moves.App\bin\EntityFramework.SqlServer.dll
 C:\Projecten\Moves\Moves.App\bin\EntityFramework.xml
 C:\Projecten\Moves\Moves.App\bin\EntityFramework.SqlServer.xml
+D:\Projects\Moves\Moves.App\Moves.App\bin\EntityFramework.dll
+D:\Projects\Moves\Moves.App\Moves.App\bin\EntityFramework.SqlServer.dll
+D:\Projects\Moves\Moves.App\Moves.App\bin\EntityFramework.xml
+D:\Projects\Moves\Moves.App\Moves.App\bin\EntityFramework.SqlServer.xml
+D:\Projects\Moves\Moves.App\Moves.App\bin\Rsft.HttpCookieSecure.dll
+D:\Projects\Moves\Moves.App\Moves.App\bin\Rsft.HttpCookieSecure.pdb
