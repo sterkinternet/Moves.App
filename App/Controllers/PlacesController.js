@@ -14,7 +14,29 @@ movesApp.controller('PlacesController', ['$scope', 'ApiService', function ($scop
 	}
 	search();
 
+	$scope.segment = null;
+
+	$scope.details = function (day, segment) {
+	    console.log(segment);
+	    console.log(day);
+	    $scope.day = day;
+	    $scope.segment = segment;
+
+        if (segment) {
+	        $scope.map = {
+	            center: {
+	                latitude: segment.place.location.lat,
+	                longitude: segment.place.location.lon
+	            },
+	            zoom: 14
+	        };
+        }
+	}
+
 	$scope.$watch('year', search);
 	$scope.$watch('month', search);
 	
+
+	$scope.map = null;
+
 }]);

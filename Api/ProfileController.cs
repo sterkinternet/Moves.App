@@ -13,7 +13,7 @@ namespace Moves.App.Api
     {
         public User GetUser()
         {
-            var user = MovesApplication.MovesService.Profile.GetUser();
+            var user = MovesApplication.Client.Profile.GetUser();
             return user.Data;
 		}
     }

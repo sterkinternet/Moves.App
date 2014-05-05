@@ -13,7 +13,7 @@ namespace Moves.App.Api
     {
         public IEnumerable<Day> GetByMonth(int year, int month)
         {
-			var days = MovesApplication.MovesService.Places.GetByMonth(year, month);
+            var days = MovesApplication.Client.Places.GetByMonth(year, month);
 			return days.Data;
 		}     
     }

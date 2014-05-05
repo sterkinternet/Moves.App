@@ -13,13 +13,13 @@ namespace Moves.App.Api
     {
         public IEnumerable<Day> GetByMonth(int year, int month)
         {
-			var days = MovesApplication.MovesService.Activity.GetByMonth(year, month);
+            var days = MovesApplication.Client.Activity.GetByMonth(year, month);
 			return days.Data;
 		}
 
         public IEnumerable<ActivityList> GetSupported()
         {
-            var activities = MovesApplication.MovesService.Activity.GetSupported();
+            var activities = MovesApplication.Client.Activity.GetSupported();
             return activities.Data;
         }     
     }

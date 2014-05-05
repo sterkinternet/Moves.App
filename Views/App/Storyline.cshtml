@@ -5,41 +5,91 @@
 
 <h2>Storyline</h2>
 
-<div class="container" ng-controller="StorylineController">
-	<div class="row">
-		<div class="col-md-8">			
-			<div class="panel panel-default" ng-repeat="day in days">
-				<div class="panel-heading">
-					<h3 class="panel-title">{{day.date}}</h3>
-				</div>
-				<div class="row panel-body">
-					<div class="col-md-12">
-						<table class="table-condensed">
-							<tr ng-repeat="segment in day.segments">
-								<td>Plaats: {{segment.place.name}}</td>
-								<td>Tijd: {{segment.startTime | date : 'dd-MM-yyyy HH:mm:ss'}} - {{segment.endTime | date : 'dd-MM-yyyy HH:mm:ss'}}</td>
-							</tr>
-						</table>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<h2>Options</h2>
-			<div class="panel panel-primary">
-				<div class="panel-heading">
-					<h4>Filter</h4>
-				</div>
-				<div class="panel-body">
-					<label>Month</label><input type="number" step="1" min="1" max="12" ng-model="month" />
-					<label>Year</label><input type="number" step="1" min="2013" max="2014" ng-model="year" />
-				</div>
-				<div class="panel-footer">
-					<a class="btn btn-link">TODO</a>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="container" ng-controller="StorylineController">    
+    <div class="panel panel-default" ng-show="!segment">
+        <div class="panel-heading">
+            Filter
+        </div>
+        <div class="panel-body">
+            <form role="form" class="form-inline">
+                <div class="form-group">
+                    <label>Month</label>
+                    <input type="number" class="form-control" step="1" min="1" max="12" ng-model="month" />
+                </div>
+                <div class="form-group">
+                    <label>Year</label>
+                    <input type="number" class="form-control" step="1" min="2013" max="2014" ng-model="year" />
+                </div>                
+            </form>
+        </div>
+    </div>
+
+    <div class="panel panel-primary" ng-repeat="day in days" ng-show="!segment">
+        <div class="panel-heading">            
+            <moment ng-model="day.date" ng-moment-parse="YYYYMMDD" ng-moment-format="DD-MM-YYYY"></moment>
+        </div>
+        <div class="panel-body">
+            <table class="table table-condensed">
+                <tr>
+                    <th>Soort</th>
+                    <th>Plaats</th>
+                    <th>Tijd</th>
+                    <th></th>
+                </tr>
+                <tr ng-repeat="segment in day.segments">
+                    <td>{{segment.type}}</td>
+                    <td>{{segment.place.name}}</td>
+                    <td>
+                        <moment ng-model="segment.startTime" ng-moment-parse="YYYYMMDDTHHmmssZZ" ng-moment-format="HH:mm:ss"></moment>
+                        -
+                        <moment ng-model="segment.endTime" ng-moment-parse="YYYYMMDDTHHmmssZZ" ng-moment-format="HH:mm:ss"></moment>
+                    </td>                    
+                    <td><a ng-click="details(day, segment)">Details</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="panel panel-default" ng-show="segment">
+        <div class="panel-heading">
+            {{ !segment.place ? 'Unknown' : segment.place.name}}
+        </div>
+        <div class="panel-body">
+            
+            <google-map center="map.center" zoom="map.zoom" ng-if="map">
+                <marker coords="map.center">
+                    <window show="true">
+                        {{segment.place.name}}
+                    </window>
+                </marker>
+            </google-map>            
+
+            <table class="table table-condensed" ng-if="segment.activities">
+                <tr>
+                    <th>Activiteit</th>
+                    <th>Calorien</th>
+                    <th>Afstand</th>
+                    <th>Tijdsduur</th>
+                    <th>Stappen</th>
+                    <th>Van</th>
+                    <th>Tot</th>
+                </tr>
+                <tr ng-repeat="activity in segment.activities">
+                    <td>{{activity.activity}}</td>
+                    <td>{{activity.calories}}</td>
+                    <td>{{activity.distance}}</td>
+                    <td>{{activity.duration}}</td>
+                    <td>{{activity.steps}}</td>
+                    <td><moment ng-model="segment.startTime" ng-moment-parse="YYYYMMDDTHHmmssZZ" ng-moment-format="HH:mm:ss"></moment></td>
+                    <td><moment ng-model="segment.endTime" ng-moment-parse="YYYYMMDDTHHmmssZZ" ng-moment-format="HH:mm:ss"></moment></td>
+                </tr>
+            </table>
+
+        </div>
+        <div class="panel-footer">
+            <a class="btn" ng-click="details(null)">Terug</a>
+        </div>
+    </div>
 </div>
 
 

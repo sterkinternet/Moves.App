@@ -39,12 +39,12 @@ namespace Moves.App.Controllers
         {
             var context = new MovesAppEntities();
 
-            var user = Moves.Profile.GetUser();
+            var user = Client.Profile.GetUser();
             var start = DateTime.ParseExact(user.Data.Profile.FirstDate, "yyyyMMdd", CultureInfo.InvariantCulture);
             var months = start.MonthsInRange(DateTime.Today);
             
             foreach(var month in months) {
-                var days = Moves.Places.GetByMonth(month.Year, month.Month);
+                var days = Client.Places.GetByMonth(month.Year, month.Month);
                 if (days != null)
                 {
                     var places = days.Data
@@ -83,10 +83,10 @@ namespace Moves.App.Controllers
 			return Content("Unauthorized");
 		}
 
-        public MovesService Moves {
+        public MovesClient Client {
             get
             {
-                return MovesApplication.MovesService;
+                return MovesApplication.Client;
             }
         }
     }

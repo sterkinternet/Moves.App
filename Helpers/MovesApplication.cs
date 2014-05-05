@@ -26,16 +26,17 @@ namespace Moves.App.Helpers {
 		}		
 
 		protected void Application_BeginRequest(object sender, EventArgs e) {
-			var accessToken = GetAccessToken();
-			var clientId = ConfigurationManager.AppSettings["ClientId"];
-			var clientSecret = ConfigurationManager.AppSettings["ClientSecret"];			
-			var service = new MovesService(clientId, clientSecret, accessToken != null ? accessToken.AccessToken : null);
+			var accessToken = GetAccessToken();            
+            var clientId = ConfigurationManager.AppSettings["ClientId"];
+			var clientSecret = ConfigurationManager.AppSettings["ClientSecret"];
+            var service = new MovesClient(clientId, clientSecret, accessToken != null ? accessToken.AccessToken : null);
 
 			var authorizationToken = HttpContext.Current.Request.QueryString["code"];
 			if (!string.IsNullOrEmpty(authorizationToken)) {
-				var token = service.ReceiveAccessToken(authorizationToken, null);
+                var redirectUrl = GetBaseUrl();
+                var token = service.ReceiveAccessToken(authorizationToken, redirectUrl);
 				SetAccessToken(token.Data);
-				service = new MovesService(clientId, clientSecret, token.Data.AccessToken);
+                service = new MovesClient(clientId, clientSecret, token.Data.AccessToken);
 			}
 			HttpContext.Current.Items[MovesServiceKey] = service;
 		}
@@ -52,17 +53,22 @@ namespace Moves.App.Helpers {
 			HttpContext.Current.Session.Abandon();
 		}
 
-		public static MovesService MovesService {
+		public static MovesClient Client {
 			get {
-				return (MovesService)HttpContext.Current.Items[MovesServiceKey];
+                return (MovesClient)HttpContext.Current.Items[MovesServiceKey];
 			}
 		}
 
 		public static bool HasToken {
 			get {
-				return MovesService.Credentials != null && !string.IsNullOrEmpty(MovesService.Credentials.AccessToken);
+                return Client.Credentials != null && !string.IsNullOrEmpty(Client.Credentials.AccessToken);
 			}
 		}
+
+        public static string GetBaseUrl()
+        {
+            return HttpContext.Current.Request.Url.Scheme + "://" + HttpContext.Current.Request.Url.Authority + HttpContext.Current.Request.ApplicationPath.TrimEnd('/') + "/";
+        }
 
 		private AccessTokenData GetAccessToken() {
 			if (HttpContext.Current.Request.Cookies.AllKeys.Contains(AccessTokenKey)) {
@@ -76,7 +82,7 @@ namespace Moves.App.Helpers {
 		private void SetAccessToken(AccessTokenData accessToken) {			
 			var cookie = new HttpCookie(AccessTokenKey) { 				
 				HttpOnly = true,
-				Expires = DateTime.Today.AddSeconds(Int32.Parse(accessToken.ExpiresIn)),
+				Expires = DateTime.Today.AddSeconds(accessToken.ExpiresIn),
 				Value = JsonConvert.SerializeObject(accessToken) 
 			};						
 			HttpContext.Current.Response.SetCookie(CookieSecure.Encode(cookie, CookieProtection.Encryption));
