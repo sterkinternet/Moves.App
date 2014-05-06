@@ -119,3 +119,4 @@ C:\Projecten\Moves\Moves.App\obj\Debug\Moves.App.dll
 C:\Projecten\Moves\Moves.App\obj\Debug\Moves.App.pdb
 C:\Projecten\Moves\Moves.App\bin\RestSharp.dll
 C:\Projecten\Moves\Moves.App\bin\RestSharp.xml
+C:\Projecten\Moves\Moves.App\obj\Debug\Moves.App.csprojResolveAssemblyReference.cache

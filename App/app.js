@@ -3,5 +3,6 @@
 var movesApp = angular.module('movesApp', [    
     'ApiModule',
     'UtilModule',
-    'google-maps'
+    'google-maps',
+    'movesFilters'
 ]);

@@ -5,14 +5,14 @@
 
 <h2>Places</h2>
 
-<div class="container" ng-controller="PlacesController">    
+<div class="container" ng-controller="PlacesController">
 
-    <div class="panel panel-default" ng-if="!segment">
+    <div class="panel panel-default" ng-show="!segment">
         <div class="panel-heading">
             Filter
         </div>
         <div class="panel-body">
-            <form role="form" class="form-inline">            
+            <form role="form" class="form-inline">
                 <div class="form-group">
                     <label>Month</label>
                     <input type="number" class="form-control" step="1" min="1" max="12" ng-model="month" />
@@ -23,11 +23,11 @@
                 </div>
             </form>
         </div>
-    </div>
+    </div>     
 
     <div class="panel panel-primary" ng-repeat="day in days" ng-if="!segment">
         <div class="panel-heading">
-            {{day.date           
+            <moment ng-model="day.date" ng-moment-parse="YYYYMMDD" ng-moment-format="DD-MM-YYYY"></moment>
         </div>
         <div class="panel-body">
             <table class="table table-condensed">
@@ -43,16 +43,22 @@
                 </tr>
             </table>
         </div>
-    </div>        
+    </div>
 
-    <div class="panel panel-default" ng-if="segment">
+    <div class="panel panel-default" ng-show="segment">
         <div class="panel-heading">
             {{ !segment.place ? 'Unknown' : segment.place.name}}
         </div>
         <div class="panel-body">
-            <google-map center="map.center" zoom="map.zoom">
-                <marker coords="map.center"></marker>
-            </google-map>            
+
+            <google-map center="map.center" zoom="map.zoom" ng-if="map">
+                <marker coords="map.center">
+                    <window show="true">
+                        {{segment.place.name}}
+                    </window>
+                </marker>
+            </google-map>          
+
         </div>
         <div class="panel-footer">
             <a class="btn" ng-click="details(null)">Terug</a>

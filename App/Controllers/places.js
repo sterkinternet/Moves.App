@@ -16,9 +16,7 @@ movesApp.controller('PlacesController', ['$scope', 'ApiService', function ($scop
 
 	$scope.segment = null;
 
-	$scope.details = function (day, segment) {
-	    console.log(segment);
-	    console.log(day);
+	$scope.details = function (day, segment) {	    
 	    $scope.day = day;
 	    $scope.segment = segment;
 

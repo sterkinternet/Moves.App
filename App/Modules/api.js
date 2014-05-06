@@ -8,6 +8,9 @@ angular.module('ApiModule', [])
 	    	},
 	    	'getStoryline': function (year, month) {	    		
 	    		return $http.get(utilService.createRequestUrl('/Api/Storyline/GetByMonth?year={0}&month={1}', year, month));
+	    	},
+	    	'getSummary': function (year, month) {	    		
+	    	    return $http.get(utilService.createRequestUrl('/Api/Summary/GetByMonth?year={0}&month={1}', year, month));
 	    	}
 	    };
     }]);

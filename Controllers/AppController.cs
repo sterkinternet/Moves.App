@@ -30,6 +30,11 @@ namespace Moves.App.Controllers
 			return View();
 		}
 
+        public ActionResult Summary()
+        {
+            return View();
+        }
+
 		public ActionResult Logoff() {
 			MovesApplication.Logoff();
 			return RedirectToAction("Start");

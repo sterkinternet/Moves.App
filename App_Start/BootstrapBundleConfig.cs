@@ -34,11 +34,11 @@ namespace ScrumBoard.App_Start
             
             //App
             BundleTable.Bundles.Add(new ScriptBundle("~/bundles/app")                
-                .IncludeDirectory("~/App/Libraries", "*.js")
-                .IncludeDirectory("~/App/Modules", "*.js")                
+                .IncludeDirectory("~/App/libraries", "*.js")
+                .IncludeDirectory("~/App/modules", "*.js")                
                 .Include("~/App/app.js")
-                .IncludeDirectory("~/App/Controllers", "*.js")
-                .IncludeDirectory("~/App/Directives", "*.js")
+                .IncludeDirectory("~/App/controllers", "*.js")
+                .IncludeDirectory("~/App/directives", "*.js")                
             );           
 		}
 	}

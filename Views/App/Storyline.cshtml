@@ -31,14 +31,14 @@
         <div class="panel-body">
             <table class="table table-condensed">
                 <tr>
-                    <th>Soort</th>
+                    <th></th>
                     <th>Plaats</th>
                     <th>Tijd</th>
                     <th></th>
                 </tr>
                 <tr ng-repeat="segment in day.segments">
-                    <td>{{segment.type}}</td>
-                    <td>{{segment.place.name}}</td>
+                    <td><icon ng-model="segment.type"></icon></td>
+                    <td>{{segment.place ? segment.place.name : 'Transport'}}</td>
                     <td>
                         <moment ng-model="segment.startTime" ng-moment-parse="YYYYMMDDTHHmmssZZ" ng-moment-format="HH:mm:ss"></moment>
                         -
@@ -66,7 +66,7 @@
 
             <table class="table table-condensed" ng-if="segment.activities">
                 <tr>
-                    <th>Activiteit</th>
+                    <th></th>
                     <th>Calorien</th>
                     <th>Afstand</th>
                     <th>Tijdsduur</th>
@@ -75,7 +75,7 @@
                     <th>Tot</th>
                 </tr>
                 <tr ng-repeat="activity in segment.activities">
-                    <td>{{activity.activity}}</td>
+                    <td><icon ng-model="activity.activity"></icon></td>
                     <td>{{activity.calories}}</td>
                     <td>{{activity.distance}}</td>
                     <td>{{activity.duration}}</td>

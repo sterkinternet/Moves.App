@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Summary";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Summary</h2>
+
+<div class="container" ng-controller="SummaryController">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Filter
+        </div>
+        <div class="panel-body">
+            <form role="form" class="form-inline">
+                <div class="form-group">
+                    <label>Month</label>
+                    <input type="number" class="form-control" step="1" min="1" max="12" ng-model="month" />
+                </div>
+                <div class="form-group">
+                    <label>Year</label>
+                    <input type="number" class="form-control" step="1" min="2013" max="2014" ng-model="year" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="panel panel-primary" ng-repeat="day in days">
+        <div class="panel-heading">
+            <moment ng-model="day.date" ng-moment-parse="YYYYMMDD" ng-moment-format="DD-MM-YYYY"></moment>
+        </div>
+        <div class="panel-body">
+            <table class="table table-condensed">
+                <tr>
+                    <th></th>                    
+                    <th>Duration</th>
+                    <th>Distance</th>
+                    <th>Steps</th>
+                    <th>Calories</th>                    
+                </tr>
+                <tr ng-repeat="summary in day.summary">
+                    <td><icon ng-model="summary.activity"></icon></td>                    
+                    <td>{{summary.duration | duration }}</td>                    
+                    <td>{{summary.distance | distance }}</td>
+                    <td>{{summary.steps | steps}}</td>
+                    <td>{{summary.calories | calories}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+       
+</div>
